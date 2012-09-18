@@ -4,6 +4,17 @@ use Shutterstock::TODO::Schema::Candy;
 
 table 'person';
 
+primary_column person_id => {
+  data_type => "integer",
+  is_auto_increment => 1};
+
+unique_column email => {
+  data_type => 'varchar',
+  size => '96'};
+
+has_many todo_list => (
+  '::TodoListItem', 'person_id');
+
 1;
 
 =head1 NAME
