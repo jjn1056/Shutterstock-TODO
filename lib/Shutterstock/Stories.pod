@@ -10,9 +10,10 @@ metric associated.  There should also be test cases.
 
 =head1 ITERATION ONE
 
-As a person, I want a TODO list so that I can track things I need to do.
+As a person, I want a TODO list so that I can track jobs I need to do.
 
-As a person with a TODO list, I need to display it so I know what needs doing.
+As a person with a TODO list, I need to retrieve my unfinished jobs so I know
+what needs work.
 
 As a person with a TODO list, I need to add, edit and complete items on the
 list so that it stays current.
