@@ -10,8 +10,17 @@ metric associated.  There should also be test cases.
 
 =head1 ITERATION ONE
 
-As a person, I want a TODO list so that I can track all the things that need
-doing.
+As a person, I want a TODO list so that I can track things I need to do.
+
+As a person with a TODO list, I need to display it so I know what needs doing.
+
+As a person with a TODO list, I need to add, edit and complete items on the
+list so that it stays current.
+
+As a person with a TODO list, I want a Web GUI interface so that I can interact
+with my list.
+
+=head1 ITERATION TWO
 
 As a person with a TODO list, I’d like to categorize my list by one of (bugs,
 new features, technical debt) so that I can better organize the list and
@@ -19,9 +28,6 @@ understand my tasks.
 
 As a person with a TODO list, I want  to be able to order the list so that the 
 most important things are on top.
-
-As a person with a TODO list, I want to be able to display, add, edit and
-complete items on the list so that it stays current.
 
 =head1 AUTHOR
 

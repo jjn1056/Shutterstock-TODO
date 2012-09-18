@@ -6,10 +6,6 @@ package Shutterstock::TODO;
 
 Shutterstock::TODO - A cool example of a TODO application
 
-=head1 SYNOPSIS
-
-    TBD
-
 =head1 DESCRIPTION
 
 This is a sample application designed to demo L<DBIx::Class> and related
@@ -23,7 +19,7 @@ see L<Shutterstock::Stories>
 
 The following modules or resources may be of interest.
 
-L<DBIx::Class>
+L<DBIx::Class>, L<Test::DBIx::Class>, L<Test::Most>
 
 =head1 AUTHOR
 
