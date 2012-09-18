@@ -1,6 +1,5 @@
 package Shutterstock::TODO::Schema::Result::TodoList;
 
-use syntax 'method';
 use Shutterstock::TODO::Schema::Candy;
 
 table 'todo_list';

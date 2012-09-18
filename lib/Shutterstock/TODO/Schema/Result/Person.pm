@@ -1,6 +1,5 @@
 package Shutterstock::TODO::Schema::Result::Person;
 
-use syntax 'method';
 use Shutterstock::TODO::Schema::Candy;
 
 table 'person';
