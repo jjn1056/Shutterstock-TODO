@@ -1,0 +1,33 @@
+# NAME
+
+Shutterstock::TODO - A cool example of a TODO application
+
+# SYNOPSIS
+
+    TBD
+
+# DESCRIPTION
+
+This is a sample application designed to demo [DBIx::Class](http://search.cpan.org/perldoc?DBIx::Class) and related
+technologies.
+
+# STORIES
+
+see [Shutterstock::Stories](http://search.cpan.org/perldoc?Shutterstock::Stories)
+
+# SEE ALSO
+
+The following modules or resources may be of interest.
+
+[DBIx::Class](http://search.cpan.org/perldoc?DBIx::Class)
+
+# AUTHOR
+
+    John Napiorkowski C<< <jjnapiork@cpan.org> >>
+
+# COPYRIGHT & LICENSE
+
+    Copyright 2012, John Napiorkowski C<< <jjnapiork@cpan.org> >>
+
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

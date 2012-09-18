@@ -1,0 +1,39 @@
+=head1 NAME
+
+Shutterstock::TODO::Stories - User Stories for Shutterstock::TODO
+
+=head1 DESCRIPTION
+
+User stories that shape the discussion about what we are doing.  All code
+needs to have a story that defines its objective and identifies the success
+metric associated.  There should also be test cases.
+
+=head1 ITERATION ONE
+
+As a person, I want a TODO list so that I can track all the things that need
+doing.
+
+As a person with a TODO list, I’d like to categorize my list by one of (bugs,
+new features, technical debt) so that I can better organize the list and
+understand my tasks.
+
+As a person with a TODO list, I want  to be able to order the list so that the 
+most important things are on top.
+
+As a person with a TODO list, I want to be able to display, add, edit and
+complete items on the list so that it stays current.
+
+=head1 AUTHOR
+
+See L<Shutterstock::TODO> for author information.
+
+=head1 SEE ALSO
+
+L<Shutterstock::TODO>
+
+=head1 COPYRIGHT & LICENSE
+
+See L<Shutterstock::TODO> for copyright and license information.
+
+=cut
+

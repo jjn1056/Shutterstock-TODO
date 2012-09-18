@@ -1,0 +1,13 @@
+Revision history for Perl extension Shutterstock-Review
+
+0.001   17 September 2012
+        - As a person, I want a TODO list so that I can track all the things
+          that need doing.
+        - As a person with a TODO list, I’d like to categorize my list by one
+          of (bugs, new features, technical debt) so that I can better
+          organize the list and understand my tasks.
+        - As a person with a TODO list, I want  to be able to order the list
+          so that the most important things are on top.
+        - As a person with a TODO list, I want to be able to add, edit and
+          complete items on the list so that it stays current.
+
