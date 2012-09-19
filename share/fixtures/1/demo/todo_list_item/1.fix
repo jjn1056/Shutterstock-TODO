@@ -1,0 +1,6 @@
+$HASH1 = {
+           completed         => 0,
+           description       => 'Buy Milk',
+           person_id         => 1,
+           todo_list_item_id => 1
+         };

@@ -1,22 +1,16 @@
 use Test::Most;
 use Test::DBIx::Class
   -schema_class=>'Shutterstock::TODO::Schema',
+  -fixture_class=>'::Population',
   qw(Person);
 
-fixtures_ok sub {
-  Person->create({
-    email=>'jnapiorkowski@shutterstock.com',
-    todo_list=> [
-      { description=>"Buy Milk"},
-      {description=>"Buy Beer"},
-    ]});
-};
+fixtures_ok ['demo'];
 
 ok my $person = Person->from_email('jnapiorkowski@shutterstock.com'),
   'Found expected person';
 
-ok (my @jobs = $person->my_incomplete_jobs),
-  'Found some jobs';
+ok ((my @jobs = $person->my_incomplete_jobs),
+  'Found some jobs');
 
 ok my $new = $person->add_a_job('Pay Bills'),
   'Added a new job';

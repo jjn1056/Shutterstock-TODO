@@ -1,0 +1,294 @@
+---
+schema:
+  procedures: {}
+  tables:
+    person:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - person_id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - email
+          match_type: ''
+          name: person_email
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: UNIQUE
+      fields:
+        email:
+          data_type: varchar
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 1
+          name: email
+          order: 2
+          size:
+            - 96
+        person_id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: person_id
+          order: 1
+          size:
+            - 0
+      indices: []
+      name: person
+      options: []
+      order: 1
+    todo_list_item:
+      constraints:
+        - deferrable: 1
+          expression: ''
+          fields:
+            - todo_list_item_id
+          match_type: ''
+          name: ''
+          on_delete: ''
+          on_update: ''
+          options: []
+          reference_fields: []
+          reference_table: ''
+          type: PRIMARY KEY
+        - deferrable: 1
+          expression: ''
+          fields:
+            - person_id
+          match_type: ''
+          name: todo_list_item_fk_person_id
+          on_delete: CASCADE
+          on_update: CASCADE
+          options: []
+          reference_fields:
+            - person_id
+          reference_table: person
+          type: FOREIGN KEY
+      fields:
+        completed:
+          data_type: boolean
+          default_value: 0
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: completed
+          order: 4
+          size:
+            - 0
+        description:
+          data_type: text
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: description
+          order: 3
+          size:
+            - 0
+        person_id:
+          data_type: integer
+          default_value: ~
+          is_nullable: 0
+          is_primary_key: 0
+          is_unique: 0
+          name: person_id
+          order: 2
+          size:
+            - 0
+        todo_list_item_id:
+          data_type: integer
+          default_value: ~
+          is_auto_increment: 1
+          is_nullable: 0
+          is_primary_key: 1
+          is_unique: 0
+          name: todo_list_item_id
+          order: 1
+          size:
+            - 0
+      indices:
+        - fields:
+            - person_id
+          name: todo_list_item_idx_person_id
+          options: []
+          type: NORMAL
+      name: todo_list_item
+      options: []
+      order: 2
+  triggers: {}
+  views: {}
+translator:
+  add_drop_table: 0
+  filename: ~
+  no_comments: 0
+  parser_args:
+    DBIx::Class::Schema: ~
+    DBIx::Schema: ~
+    package: &1 !!perl/hash:Shutterstock::TODO::Schema
+      class_mappings:
+        DBIx::Class::DeploymentHandler::VersionStorage::Standard::VersionResult: __VERSION
+        Shutterstock::TODO::Schema::Result::Person: Person
+        Shutterstock::TODO::Schema::Result::TodoListItem: TodoListItem
+      source_registrations:
+        Person: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            email:
+              data_type: varchar
+              size: 96
+            person_id:
+              data_type: integer
+              is_auto_increment: 1
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - person_id
+            - email
+          _primaries: &2
+            - person_id
+          _relationships:
+            todo_list:
+              attrs:
+                accessor: multi
+                cascade_copy: 1
+                cascade_delete: 1
+                join_type: LEFT
+              class: Shutterstock::TODO::Schema::Result::TodoListItem
+              cond:
+                foreign.person_id: self.person_id
+              source: Shutterstock::TODO::Schema::Result::TodoListItem
+          _unique_constraints:
+            person_email:
+              - email
+            primary: *2
+          name: person
+          result_class: Shutterstock::TODO::Schema::Result::Person
+          resultset_attributes: {}
+          resultset_class: Shutterstock::TODO::Schema::ResultSet::Person
+          schema: *1
+          source_name: Person
+        TodoListItem: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            completed:
+              data_type: boolean
+              default_value: 0
+            description:
+              data_type: text
+            person_id:
+              data_type: integer
+              is_foreign_key: 1
+            todo_list_item_id:
+              data_type: integer
+              is_auto_increment: 1
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - todo_list_item_id
+            - person_id
+            - description
+            - completed
+          _primaries: &3
+            - todo_list_item_id
+          _relationships:
+            person:
+              attrs:
+                accessor: single
+                fk_columns:
+                  person_id: 1
+                is_foreign_key_constraint: 1
+                undef_on_null_fk: 1
+              class: Shutterstock::TODO::Schema::Result::Person
+              cond:
+                foreign.person_id: self.person_id
+              source: Shutterstock::TODO::Schema::Result::Person
+          _unique_constraints:
+            primary: *3
+          name: todo_list_item
+          result_class: Shutterstock::TODO::Schema::Result::TodoListItem
+          resultset_attributes: {}
+          resultset_class: Shutterstock::TODO::Schema::ResultSet::TodoListItem
+          schema: *1
+          source_name: TodoListItem
+        __VERSION: !!perl/hash:DBIx::Class::ResultSource::Table
+          _columns:
+            ddl:
+              data_type: text
+              is_nullable: 1
+            id:
+              data_type: int
+              is_auto_increment: 1
+            upgrade_sql:
+              data_type: text
+              is_nullable: 1
+            version:
+              data_type: varchar
+              size: 50
+          _columns_info_loaded: 0
+          _ordered_columns:
+            - id
+            - version
+            - ddl
+            - upgrade_sql
+          _primaries: &4
+            - id
+          _relationships: {}
+          _unique_constraints:
+            dbix_class_deploymenthandler_versions_version:
+              - version
+            primary: *4
+          name: dbix_class_deploymenthandler_versions
+          result_class: DBIx::Class::DeploymentHandler::VersionStorage::Standard::VersionResult
+          resultset_attributes: {}
+          resultset_class: DBIx::Class::DeploymentHandler::VersionStorage::Standard::VersionResultSet
+          schema: *1
+          source_name: __VERSION
+      storage: !!perl/hash:DBIx::Class::Storage::DBI::SQLite
+        _conn_pid: 6903
+        _connect_info:
+          - DBI:SQLite:/Users/johnn/Desktop/Shutterstock-TODO/share/shutterstock-todo-schema.db
+          - ''
+          - ''
+        _dbh: !!perl/hash:DBI::db {}
+        _dbh_autocommit: 1
+        _dbh_details: {}
+        _dbh_gen: 0
+        _dbi_connect_info:
+          - DBI:SQLite:/Users/johnn/Desktop/Shutterstock-TODO/share/shutterstock-todo-schema.db
+          - ''
+          - ''
+          - &5
+            AutoCommit: 1
+            PrintError: 0
+            RaiseError: 1
+            ShowErrorStatement: 1
+        _dbic_connect_attributes: *5
+        _driver_determined: 1
+        _in_do_block: 0
+        _sql_maker: ~
+        _sql_maker_opts: {}
+        savepoints: []
+        schema: *1
+        transaction_depth: 0
+    sources:
+      - TodoListItem
+      - Person
+  parser_type: SQL::Translator::Parser::DBIx::Class
+  producer_args: {}
+  producer_type: SQL::Translator::Producer::YAML
+  show_warnings: 0
+  trace: 0
+  version: 0.11012

@@ -15,6 +15,17 @@ unique_column email => {
 has_many todo_list => (
   '::TodoListItem', 'person_id');
 
+sub my_incomplete_jobs {
+  my $set = shift->todo_list
+    ->incomplete;
+  return wantarray ? $set->all : $set;
+}
+
+sub add_a_job {
+  my ($self, $description) = @_;
+  $self->add_to_todo_list({description=>$description});
+}
+
 1;
 
 =head1 NAME

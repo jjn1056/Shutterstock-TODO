@@ -22,6 +22,18 @@ column completed => {
 belongs_to person => (
   '::Person', 'person_id');
 
+sub change_description {
+  my ($self, $new_description) = @_;
+  $self->update({description=>$new_description});
+}
+
+sub unfinished { ! shift->completed };
+sub is_complete { shift->completed };
+
+sub mark_completed {
+  shift->update({completed=>1});
+}
+
 1;
 
 =head1 NAME

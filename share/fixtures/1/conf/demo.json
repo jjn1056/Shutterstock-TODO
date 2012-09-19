@@ -1,0 +1,14 @@
+{
+   "sets" : [
+      {
+         "quantity" : "all",
+         "class" : "Person",
+         "cond": { "email": { "=": "jnapiorkowski@shutterstock.com" } }
+      }
+   ],
+   "has_many" : {
+      "fetch" : 1,
+      "quantity" : "all"
+   }
+}
+

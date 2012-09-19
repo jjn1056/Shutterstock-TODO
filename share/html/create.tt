@@ -1,0 +1,6 @@
+[% DEFAULT title = "New Item" %]
+
+<p>
+[% form.render %]
+</p>
+
