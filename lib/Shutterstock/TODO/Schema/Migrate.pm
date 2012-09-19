@@ -1,11 +1,13 @@
-package Shutterstock::Exchange::TODO::Migrate;
+package Shutterstock::TODO::Schema::Migrate;
 
 use Moose;
- 
+use Shutterstock::TODO::Web;
+
 extends 'DBIx::Class::Migration::Script';
- 
+
 sub defaults {
-  schema_class => 'Shutterstock::TODO::Schema',
+  schema => Shutterstock::TODO::Web->model('Schema')
+    ->schema,
 }
 
 __PACKAGE__->meta->make_immutable;
