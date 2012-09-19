@@ -2,7 +2,7 @@
 
 <ul>[% FOREACH job IN incomplete_jobs %]
   <li>[% job.description %] |
-    <a href="[% uri_for_action('edit', job.todo_list_item_id) %]">edit</a>
+    <a href="[% uri_for_action('/job/edit', job.todo_list_item_id) %]">edit</a>
   </li>
 [% END %]</ul>
 <a href=[% uri_for_action('create') %]>Add A New Job</a>

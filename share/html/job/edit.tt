@@ -1,0 +1,7 @@
+[% DEFAULT title = "Update Item" %]
+
+<p>
+[% form.render %]
+</p>
+
+
